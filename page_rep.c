@@ -27,11 +27,21 @@ int main(int argc, char * argv[]){
 	int temp_col = col_size * 2;
 
 	for (int m = 0; m < row_size; m++){
-		int *temp_array = (int * )realloc(sizeof(int) * temp_col);
+		int *temp_array = (int * )realloc(int_array[m],sizeof(int) * temp_col);
 		for (int k = 0; k < col_size; k++){
 			temp_array[k] = int_array[m][k]; 
 		}
 
+	}
+	printf("after realloc\n");
+	int_array[0][2] = 100;
+	int_array[0][3] = 200;
+	int_array[1][2] = 300;
+	int_array[1][3] = 400;
+	for (int j = 0; j < row_size; j ++){
+		for( int n = 0; n < temp_col; n ++){
+			printf("ele %d\n",int_array[j][n]);
+		}
 	}
 
 	for (int i = 0; i < row_size; i++){
